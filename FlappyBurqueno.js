@@ -24,6 +24,8 @@ let constant = pipeNorth.height + gap;
 //set my variables for the bird x and y position
 let bX = 10;
 let bY = 150;
+//set the gravity variable equal to 1 pixel
+let gravity = 1;
 
 // draw images
 
@@ -42,5 +44,10 @@ window.onload = function draw() {
 	//draw the bird
 	ctx.drawImage(bird, bX, bY);
 
+	//add in gravity
+	bY += gravity;
+
+	//add in the animation frame that will loop through the draw function
+	requestAnimationFrame(draw);
 
 }
