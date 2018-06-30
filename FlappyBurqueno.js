@@ -41,7 +41,7 @@ let pipe = [];
 pipe[0] = {
 	x : cvs.width,
 	y : 0
-}
+};
 
 // draw images
 window.onload = function draw() {
@@ -50,7 +50,7 @@ window.onload = function draw() {
 	ctx.drawImage(bg, 0, 0);
 
 	//loop through the pipe array and draw all of the pipes
-	for(var i = 0; i < pipe.length; i++){
+	for(let i = 0; i < pipe.length; i++){
 		//draw the north and south pipes
 		ctx.drawImage(pipeNorth, pipe[i].x, pipe[i].y);
 		ctx.drawImage(pipeSouth, pipe[i].x, pipe[i].y + constant);
@@ -72,4 +72,4 @@ window.onload = function draw() {
 	//add in the animation frame that will loop through the draw function
 	requestAnimationFrame(draw);
 
-}
+};
