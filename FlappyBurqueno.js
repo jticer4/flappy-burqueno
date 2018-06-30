@@ -5,11 +5,11 @@ let ctx = cvs.getContext("2d");
 
 //load images
 
-let bird = new Image(200, 300);
-let bg = new Image(200, 300);
-let fg = new Image(200, 300);
-let pipeNorth = new Image(200, 300);
-let pipeSouth = new Image(200, 300);
+let bird = new Image();
+let bg = new Image();
+let fg = new Image();
+let pipeNorth = new Image();
+let pipeSouth = new Image();
 
 bird.src= "images/bird.png";
 bg.src = "images/bg.png";
