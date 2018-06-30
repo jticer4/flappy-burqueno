@@ -21,6 +21,10 @@ pipeSouth.src = "images/pipeSouth.png";
 let gap = 80;
 //set the constant variable to the height of the north pipe plus the gap
 let constant = pipeNorth.height + gap;
+//set my variables for the bird x and y position
+let bX = 10;
+let bY = 150;
+
 // draw images
 
 window.onload = function draw() {
@@ -34,5 +38,9 @@ window.onload = function draw() {
 
 	//draw the foreground
 	ctx.drawImage(fg, 0, cvs.height - fg.height);
+
+	//draw the bird
+	ctx.drawImage(bird, bX, bY);
+
 
 }
