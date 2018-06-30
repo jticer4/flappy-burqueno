@@ -24,14 +24,14 @@ let constant = pipeNorth.height + gap;
 //set my variables for the bird x and y position
 let bX = 10;
 let bY = 150;
-//set the gravity variable equal to 1 pixel
-let gravity = 1;
+//set the gravity variable equal to 1.5 pixels
+let gravity = 1.5;
 
 //add key down event listener to allow burqueno to jump
 document.addEventListener("keydown", moveUp);
 
 function moveUp() {
-	bY -= 20;
+	bY -= 27;
 }
 
 //set the pipe variable equal to an empty array
@@ -57,6 +57,17 @@ window.onload = function draw() {
 
 		//moves the pipes to the left, into view and across the screen
 		pipe[i].x --;
+
+		/*when the current pipe's x coordinate equals 125 add another pipe to the pipe array. Set its x coordinate to the
+		far right of the canvas and its y coordinate to a random  height, then subtract the height of the north pipe to bring
+		the pipes to the top of the canvas
+		 */
+		if(pipe[i].x === 125){
+			pipe.push({
+				x : cvs.width,
+				y : Math.floor(Math.random()*pipeNorth.height) - pipeNorth.height
+			});
+		}
 	}
 
 
