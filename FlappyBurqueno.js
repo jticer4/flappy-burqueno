@@ -1,14 +1,15 @@
 //declare our canvas and context variables
-var cvs = document.getElementById("canvas");
-var ctx = cvs.getContext("2d");
+let cvs = document.getElementById("canvas");
+let ctx = cvs.getContext("2d");
 
-//load images as instances of the image class
 
-var bird = new Image();
-var bg = new Image();
-var fg = new Image();
-var pipeNorth = new Image();
-var pipeSouth = new Image();
+//load images
+
+let bird = new Image(200, 300);
+let bg = new Image(200, 300);
+let fg = new Image(200, 300);
+let pipeNorth = new Image(200, 300);
+let pipeSouth = new Image(200, 300);
 
 bird.src= "images/bird.png";
 bg.src = "images/bg.png";
@@ -18,11 +19,9 @@ pipeSouth.src = "images/pipeSouth.png";
 
 // draw images
 
-function draw() {
+window.onload = function draw() {
 
-	ctx.drawImage(bg,0,0);
+	ctx.drawImage(bg, 0, 0);
 
 
 }
-
-draw();
