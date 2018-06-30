@@ -27,16 +27,38 @@ let bY = 150;
 //set the gravity variable equal to 1 pixel
 let gravity = 1;
 
-// draw images
+//add key down event listener to allow burqueno to jump
+document.addEventListener("keydown", moveUp);
 
+function moveUp() {
+	bY -= 20;
+}
+
+//set the pipe variable equal to an empty array
+let pipe = [];
+
+//set the pipe coordinates
+pipe[0] = {
+	x : cvs.width,
+	y : 0
+}
+
+// draw images
 window.onload = function draw() {
 
 	//draw the background
 	ctx.drawImage(bg, 0, 0);
 
-	//draw the north and south pipes
-	ctx.drawImage(pipeNorth, 100, 0);
-	ctx.drawImage(pipeSouth, 100, constant);
+	//loop through the pipe array and draw all of the pipes
+	for(var i = 0; i < pipe.length; i++){
+		//draw the north and south pipes
+		ctx.drawImage(pipeNorth, pipe[i].x, pipe[i].y);
+		ctx.drawImage(pipeSouth, pipe[i].x, pipe[i].y + constant);
+
+		//moves the pipes to the left, into view and across the screen
+		pipe[i].x --;
+	}
+
 
 	//draw the foreground
 	ctx.drawImage(fg, 0, cvs.height - fg.height);
