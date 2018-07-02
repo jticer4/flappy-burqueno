@@ -10,6 +10,7 @@ let fg = new Image();
 let pipeNorth = new Image();
 let pipeSouth = new Image();
 
+//give the images their corresponding sources
 bird.src= "images/bird.png";
 bg.src = "images/bg.png";
 fg.src = "images/fg.png";
@@ -18,7 +19,7 @@ pipeSouth.src = "images/pipeSouth.png";
 
 //declare variables
 //set the gap to 75 pixels which will be applied to the y axis
-let gap = 80;
+let gap = 90;
 //set the constant variable to the height of the north pipe plus the gap
 let constant = pipeNorth.height + gap;
 //set my variables for the bird x and y position
@@ -44,7 +45,7 @@ pipe[0] = {
 };
 
 // draw images
-window.onload = function draw() {
+function draw() {
 
 	//draw the background
 	ctx.drawImage(bg, 0, 0);
@@ -62,16 +63,22 @@ window.onload = function draw() {
 		far right of the canvas and its y coordinate to a random  height, then subtract the height of the north pipe to bring
 		the pipes to the top of the canvas
 		 */
-		if(pipe[i].x === 125){
+		if(pipe[i].x === 110){
 			pipe.push({
 				x : cvs.width,
 				y : Math.floor(Math.random()*pipeNorth.height) - pipeNorth.height
 			});
 		}
+		//checks to make sure you're not hitting the pipes or hitting the ground
+		if( bX + bird.width >= pipe[i].x && bX <= pipe[i].x + pipeNorth.width && (bY <= pipe[i].y + pipeNorth.height || bY + bird.height >= pipe[i].y + constant)){
+			//if you hit a pipe it will reload the page
+			location.reload()
+		}
+
 	}
 
 
-	//draw the foreground
+	//draw the foreground at the bottom of the canvas
 	ctx.drawImage(fg, 0, cvs.height - fg.height);
 
 	//draw the bird
@@ -84,3 +91,5 @@ window.onload = function draw() {
 	requestAnimationFrame(draw);
 
 };
+
+draw();
