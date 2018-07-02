@@ -70,7 +70,7 @@ function draw() {
 			});
 		}
 		//checks to make sure you're not hitting the pipes or hitting the ground
-		if( bX + bird.width >= pipe[i].x && bX <= pipe[i].x + pipeNorth.width && (bY <= pipe[i].y + pipeNorth.height || bY + bird.height >= pipe[i].y + constant)){
+		if( bX + bird.width >= pipe[i].x && bX <= pipe[i].x + pipeNorth.width && (bY <= pipe[i].y + pipeNorth.height || bY + bird.height >= pipe[i].y + constant) || bY + bird.height >= cvs.height - fg.height){
 			//if you hit a pipe it will reload the page
 			location.reload()
 		}
