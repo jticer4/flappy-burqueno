@@ -29,11 +29,21 @@ let bY = 150;
 let gravity = 1.5;
 let score = 0;
 
+//add audio files
+let fly = new Audio();
+let scor = new Audio();
+
+//give the sounds their corresponding audio sources
+fly.src = "sounds/fly.mp3";
+scor.src = "sounds/score.mp3";
+
 //add key down event listener to allow burqueno to jump
 document.addEventListener("keydown", moveUp);
 
+//the function that makes the burqueno fly and plays the fly sound each time
 function moveUp() {
 	bY -= 27;
+	fly.play();
 }
 
 //set the pipe variable equal to an empty array
@@ -79,6 +89,7 @@ function draw() {
 		//adds one point to the score variable when the pipe gets to the far left of the screen
 		if(pipe[i].x == 5){
 			score++;
+			scor.play();
 		}
 	}
 
