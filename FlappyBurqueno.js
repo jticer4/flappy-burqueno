@@ -27,6 +27,7 @@ let bX = 10;
 let bY = 150;
 //set the gravity variable equal to 1.5 pixels
 let gravity = 1.5;
+let score = 0;
 
 //add key down event listener to allow burqueno to jump
 document.addEventListener("keydown", moveUp);
@@ -75,6 +76,10 @@ function draw() {
 			location.reload()
 		}
 
+		//adds one point to the score variable when the pipe gets to the far left of the screen
+		if(pipe[i].x == 5){
+			score++;
+		}
 	}
 
 
@@ -86,6 +91,10 @@ function draw() {
 
 	//add in gravity
 	bY += gravity;
+
+	ctx.fillStyle = "#000";
+	ctx.font = "20px Verdana";
+	ctx.fillText("Score : " + score, 10, cvs.height - 20);
 
 	//add in the animation frame that will loop through the draw function
 	requestAnimationFrame(draw);
