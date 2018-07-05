@@ -37,9 +37,6 @@ let scor = new Audio();
 fly.src = "sounds/fly.mp3";
 scor.src = "sounds/score.mp3";
 
-//add key down event listener to allow burqueno to jump
-document.addEventListener('keydown', moveUp);
-
 //the function that makes the burqueno fly and plays the fly sound each time
 function moveUp() {
 	bY -= 27;
@@ -48,6 +45,9 @@ function moveUp() {
 	//play the fly sound
 	fly.play();
 }
+
+//add key down event listener to allow burqueno to jump
+document.addEventListener('keydown', moveUp);
 
 //set the pipe variable equal to an empty array
 let pipe = [];
@@ -59,7 +59,7 @@ pipe[0] = {
 };
 
 // draw images
-window.onload = function draw() {
+function draw() {
 
 	//draw the background
 	ctx.drawImage(bg, 0, 0);
@@ -113,6 +113,8 @@ window.onload = function draw() {
 	//add in the animation frame that will loop through the draw function
 	requestAnimationFrame(draw);
 
-};
+}
+
+draw();
 
 
