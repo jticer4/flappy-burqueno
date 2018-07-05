@@ -38,11 +38,14 @@ fly.src = "sounds/fly.mp3";
 scor.src = "sounds/score.mp3";
 
 //add key down event listener to allow burqueno to jump
-document.addEventListener("keydown", moveUp);
+document.addEventListener('keydown', moveUp);
 
 //the function that makes the burqueno fly and plays the fly sound each time
 function moveUp() {
 	bY -= 27;
+	//rewinds the fly sound to the start so that it can be played many times in succession
+	fly.currentTime = 0;
+	//play the fly sound
 	fly.play();
 }
 
@@ -56,7 +59,7 @@ pipe[0] = {
 };
 
 // draw images
-function draw() {
+window.onload = function draw() {
 
 	//draw the background
 	ctx.drawImage(bg, 0, 0);
@@ -112,4 +115,4 @@ function draw() {
 
 };
 
-draw();
+
