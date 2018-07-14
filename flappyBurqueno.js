@@ -90,7 +90,7 @@ function draw() {
 		}
 
 		//adds one point to the score variable when the pipe gets to the far left of the screen
-		if(pipe[i].x == 5){
+		if(pipe[i].x === 5){
 			score++;
 			scor.play();
 		}
